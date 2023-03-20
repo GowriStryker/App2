@@ -1,0 +1,48 @@
+<!-- 
+*&*********************************************************************&*
+*& File         : masterView.view.xml                                  &*
+*& Company      : Stryker Project Accelerate - R5 - MEDICAL            &*
+*& Author       : Gowrinath                                            &*
+*& Date         : 06/12/2022                                           &*
+*& Title        : Approve/Reject WRICEF ID                             &*
+*& FD #         : DEV.RPT.002                                          &*
+*&*********************************************************************&*
+*& DESCRIPTION  : Approve/Reject WRICEF ID masterView                       &*
+*&*********************************************************************&*
+*& H I S T O R Y       O F       R E V I S I O N S &                   &*
+*&*********************************************************************&*
+*& DATE        AUTHOR   DESCRIPTION OF CHANGE        Request #  Vers.  &*
+*& 06/12/2022  GGUNDU   Initial RICEF                FI1K900236        &*
+*&*********************************************************************&*
+-->
+<mvc:View controllerName="ZDEV.ZDEV_WRICEF_APPROVAL.controller.masterView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<App id="master">
+		<pages>
+			<Page title="Approval Requests">
+				<!-- Begin of GGUNDU DEV.RPT.002 -->
+				<subHeader>
+					<OverflowToolbar>
+						<SearchField liveChange=".onSearch" width="100%"/>
+					</OverflowToolbar>
+				</subHeader>
+				<!-- End of GGUNDU DEV.RPT.002 -->
+				<content>
+					<List id="masterList" items="{ path: '/results', 
+					filters: [{ path: 'STATUS', operator: 'EQ', value1:'PENDING'}] , 
+					sorter: { path: 'TRACK', descending: false, group: true }}" selectionChange="onItemSelect"
+						mode="SingleSelectMaster" noDataText=".">
+						<StandardListItem title="{TYPE} : {NAME}" description="Request #{REQUEST_ID}"/>
+					</List>
+				</content>
+				<!-- Begin of GGUNDU DEV.RPT.002 -->
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button id="id_filter"  icon="sap-icon://filter" press="onFilter"></Button>
+					</OverflowToolbar>
+				</footer>
+			    <!-- End of GGUNDU DEV.RPT.002 -->
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

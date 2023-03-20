@@ -1,0 +1,25 @@
+<!-- 
+*&*********************************************************************&*
+*& File         : View1.view.xml                                       &*
+*& Company      : Stryker Project Accelerate - R5 - MEDICAL            &*
+*& Author       : Gowrinath                                            &*
+*& Date         : 06/12/2022                                           &*
+*& Title        : Approve/Reject WRICEF ID                             &*
+*& FD #         : DEV.RPT.002                                          &*
+*&*********************************************************************&*
+*& DESCRIPTION  : Approve/Reject WRICEF ID View1                       &*
+*&*********************************************************************&*
+*& H I S T O R Y       O F       R E V I S I O N S &                   &*
+*&*********************************************************************&*
+*& DATE        AUTHOR   DESCRIPTION OF CHANGE        Request #  Vers.  &*
+*& 06/12/2022  GGUNDU   Initial RICEF                FI1K900236        &*
+*&*********************************************************************&*
+-->
+
+<mvc:View controllerName="ZDEV.ZDEV_WRICEF_APPROVAL.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<SplitApp id="app">
+
+		</SplitApp>
+	</Shell>
+</mvc:View>

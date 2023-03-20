@@ -1,0 +1,22 @@
+/* Enter your custom styles here */
+.bgColor {
+	background : #2d4863 !important;
+}
+.padtop{
+	margin: 2em !important; 
+
+}
+#ddlog-scroll{
+	margin: 1rem;
+}
+.margTop{
+	margin-top : -4em !important;
+}
+.newSystemS{
+	color : red !important;
+	
+}
+.newSystemT{
+	color : red !important;
+	
+}

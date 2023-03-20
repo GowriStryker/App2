@@ -1,0 +1,203 @@
+<!-- 
+*&*********************************************************************&*
+*& File         : detailView.view.xml                                  &*
+*& Company      : Stryker Project Accelerate - R5 - MEDICAL            &*
+*& Author       : Gowrinath                                            &*
+*& Date         : 06/12/2022                                           &*
+*& Title        : Approve/Reject WRICEF ID                             &*
+*& FD #         : DEV.RPT.002                                          &*
+*&*********************************************************************&*
+*& DESCRIPTION  : Approve/Reject WRICEF ID detailView                  &*
+*&*********************************************************************&*
+*& H I S T O R Y       O F       R E V I S I O N S &                   &*
+*&*********************************************************************&*
+*& DATE        AUTHOR   DESCRIPTION OF CHANGE        Request #  Vers.  &*
+*& 06/12/2022  GGUNDU   Initial RICEF                FI1K900236        &*
+*&*********************************************************************&*
+-->
+
+<mvc:View controllerName="ZDEV.ZDEV_WRICEF_APPROVAL.controller.detailView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page id="dvPage" title="Request Details">
+		<content>
+			<ObjectHeader title="{NAME}" backgroundDesign="Solid">
+				<attributes>
+					<ObjectAttribute title="Request ID" text="{REQUEST_ID}"/>
+					<ObjectAttribute title="Requestor" text="{ path: 'REQUESTOR_NAME' }"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus id="tech" title="Tech. Lead Approval Status "
+						text="{path: 'TECH_APPROVAL', formatter: '.formats.setText', targetType : 'any' }"
+						state="{path: 'TECH_APPROVAL', formatter: '.formats.setStatus' }" active="true" press="onPress"/>
+					<ObjectStatus id="is" title="ISPO Approval Status " text="{path: 'IS_APPROVAL', formatter: '.formats.setText' }"
+						state="{path: 'IS_APPROVAL', formatter: '.formats.setStatus' }" active="true" press="onPress"/>
+				</statuses>
+			</ObjectHeader>
+		</content>
+		<content>
+			<f:Form id="wricefDetailForm" class="padtop" visible="false" editable="false">
+				<f:title>
+					<!--	<core:Title text="WRICEF Details" />	-->
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers >
+					<f:FormContainer class="margTop">
+						<f:formElements>
+							<!-- Request Id is only for backend purposes, not needed to show here-->
+							<f:FormElement label="RequestId" visible="false">
+								<f:fields>
+									<Text text="{REQUEST_ID}" id="request_Id"/>
+								</f:fields>
+							</f:FormElement>
+							<!-- service Caller is only for backend purposes, not needed to show here-->
+							<f:FormElement label="service Caller" visible="false">
+								<f:fields>
+									<Text text="{SERVICE_CALLER}" id="servCaller"/>
+								</f:fields>
+							</f:FormElement>
+							<!-- Tech ApproverName is only for backend purposes, not needed to show here-->
+							<f:FormElement label="r" visible="false">
+								<f:fields>
+									<Text text="{TECH_APPROVER_NAME}" id="techName"/>
+								</f:fields>
+							</f:FormElement>
+							<!-- Tech is date  is only for backend purposes, not needed to show here-->
+							<f:FormElement label="" visible="false">
+								<f:fields>
+									<Text text="{IS_APPROVAL_DATE}" id="isDate"/>
+								</f:fields>
+							</f:FormElement>
+							<!-- Tech tech approval date date  is only for backend purposes, not needed to show here-->
+							<f:FormElement label="" visible="false">
+								<f:fields>
+									<Text text="{TECH_APPROVAL_DATE}" id="techDate"/>
+								</f:fields>
+							</f:FormElement>
+							<!-- Tech tech rejection reason is only for backend purposes, not needed to show here-->
+							<f:FormElement label="" visible="false">
+								<f:fields>
+									<Text text="{TECH_REJECTION_REASON}" id="techReason"/>
+								</f:fields>
+							</f:FormElement>
+							<!-- Tech tech rejection reason is only for backend purposes, not needed to show here-->
+							<f:FormElement label="" visible="false">
+								<f:fields>
+									<Text text="{IS_REJECTION_REASON}" id="funcReason"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Track" class="custFont">
+								<f:fields>
+									<Input value="{TEAM}" id="nameText" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Sub-Track">
+								<f:fields>
+									<Input value="{GRP}" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Description">
+								<f:fields>
+									<Input value="{NAME}" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Impacted Release">
+								<f:fields>
+									<Input value="{REL}" id="countryText" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="WRICEF Type">
+								<f:fields>
+									<Input value="{TYPE}" id="wricefType" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="WRICEF Sub-Type">
+								<f:fields>
+									<Input value="{OBJTYP}" id="wricefSubType" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Reference WRICEF" visible="{path: 'TYPE', formatter: '.formats.setVisible' }">
+								<f:fields>
+									<Input value="{REFERENCE_WRICEF}" id="referenceWricef" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="SAP Complexity">
+								<f:fields>
+									<Input value="{SAP_COMPLEXITY}" id="sapComplexity" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Non-SAP Complexity">
+								<f:fields>
+									<Input value="{NON_SAP_COMPLEXITY}" id="nonSapComplexity" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Middleware Complexity">
+								<f:fields>
+									<Input value="{MW_COMPLEXITY}" id="mwComplexity" class="margTop" editable="false"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="CR #">
+								<f:fields>
+									<Input value="{CR}" id="crNumber" class="margTop" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="RAID #">
+								<f:fields>
+									<Input value="{RAID}" id="raidNumber" class="margTop" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Source System">
+								<f:fields>
+									<Input value="{SRCSYS}" id="sourceSystem" class="margTop" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }"/>
+									<Text text="*New Source System" class="newSystemS" visible="{path: 'srcflag', formatter: '.formats.setVis' }"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Target System">
+								<f:fields >
+									<Input value="{TARGET_SYSTEM}" id="targetSystem" class="margTop" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }"/>
+									<Text text="*New Target System" class="newSystemT" visible="{path: 'TARGETFLAG', formatter: '.formats.setVis' }"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="BPO">
+								<f:fields>
+									<Input value="{BPO}" id="bpo" class="margTop" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Middleware Pattern">
+								<f:fields>
+									<Input value="{MW_PATTERN}" id="mwPattern" class="margTop" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Delivery Notes">
+								<f:fields>
+									<Input value="{DELIVERY_NOTES}" id="deliveryNotes" class="margTop" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }"/>
+								</f:fields>
+							</f:FormElement>
+						  <f:FormElement label="Requirement ID">
+								<f:fields>
+									<Input value="{REQUIREMENT_ID}" id="requirementID" editable = "false" class="margTop" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="IS Approver">
+								<f:fields>
+									<Input value="{IS_APPROVER_NAME}" id="isApprover" class="margTop" editable="false" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</content>
+		<footer>
+			<OverflowToolbar class="bgColor">
+				<ToolbarSpacer/>
+				<Button id="butApprove" text="Approve" type="Accept" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }" press="onApprove"></Button>
+				<Button id="butReject" text="Reject" type="Reject" enabled="{path: 'SERVICE_CALLER', formatter: '.formats.setEnabled' }" press="onReject"></Button>
+				<!--<Button id="butApprove" text="Approve" type="Accept" press="onApprove"></Button>-->
+				<!--<Button id="butReject" text="Reject" type="Reject"  press="onReject"></Button>-->
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

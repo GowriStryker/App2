@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<!-- New Fragment Created GGUNDU DEV.RPT.002 -->
+	<ViewSettingsDialog
+		confirm="handleConfirm"
+		filterItems="{fModel>/filters}">
+		<filterItems>
+			<ViewSettingsFilterItem text="{fModel>text}" key="{fModel>key}" items="{fModel>items}">
+				<items>
+				<ViewSettingsItem text="{fModel>text}" key="{fModel>key}" selected="{fModel>selected}"></ViewSettingsItem>		
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
